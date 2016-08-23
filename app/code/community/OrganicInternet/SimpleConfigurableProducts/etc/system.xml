@@ -81,6 +81,26 @@
                             <show_in_store>1</show_in_store>
                             <comment>Takes affect once all configurable options have been selected</comment>
                         </change_name>
+                        <change_sku>
+                            <label>Dynamically update displayed product sku</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Takes affect once all configurable options have been selected</comment>
+                        </change_sku>
+                        <change_url>
+                            <label>Dynamically update displayed product url</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Takes affect once all configurable options have been selected</comment>
+                        </change_url>
                         <change_description>
                             <label>Dynamically update displayed product description</label>
                             <frontend_type>select</frontend_type>

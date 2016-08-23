@@ -20,6 +20,19 @@ class OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_View_Type
             if (Mage::getStoreConfig('SCP_options/product_page/change_name')) {
                 $childProducts[$productId]["productName"] = $product->getName();
             }
+
+            /**
+             * Change product sku
+             * Change product url
+             * @since 2016-08-23
+             */
+            if (Mage::getStoreConfig('SCP_options/product_page/change_sku')) {
+                $childProducts[$productId]["productSku"] = $product->getSKU();
+            }
+            if (Mage::getStoreConfig('SCP_options/product_page/change_url')) {
+                $childProducts[$productId]["productUrl"] = Mage::getUrl().$product->getUrlPath();
+            }
+
             if (Mage::getStoreConfig('SCP_options/product_page/change_description')) {
                 $childProducts[$productId]["description"] = $this->helper('catalog/output')->productAttribute($product, $product->getDescription(), 'description');
             }
@@ -71,6 +84,14 @@ class OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_View_Type
         }
         $config['ajaxBaseUrl'] = Mage::getUrl('oi/ajax/');
         $config['productName'] = $p->getName();
+        /**
+         * Change product sku
+         * Change product url
+         * @since 2016-08-23
+         */
+        $config['productSku'] = $p->getSku();
+        $config['productUrl'] = Mage::getUrl().$p->getUrlPath();
+
         $config['description'] = $this->helper('catalog/output')->productAttribute($p, $p->getDescription(), 'description');
         $config['shortDescription'] = $this->helper('catalog/output')->productAttribute($p, nl2br($p->getShortDescription()), 'short_description');
 

@@ -166,6 +166,8 @@ Product.Config.prototype.reloadPrice = function() {
         this.updateProductShortDescription(childProductId);
         this.updateProductDescription(childProductId);
         this.updateProductName(childProductId);
+        this.updateProductSku(childProductId);
+        this.updateProductUrl(childProductId);
         this.updateProductAttributes(childProductId);
         this.updateFormProductId(childProductId);
         this.addParentProductIdToCartForm(this.config.productId);
@@ -189,6 +191,8 @@ Product.Config.prototype.reloadPrice = function() {
         this.updateProductShortDescription(false);
         this.updateProductDescription(false);
         this.updateProductName(false);
+        this.updateProductSku(false);
+        this.updateProductUrl(false);
         this.updateProductAttributes(false);
         this.showCustomOptionsBlock(false, false);
         if (usingZoomer) {
@@ -225,12 +229,34 @@ Product.Config.prototype.updateProductImage = function(productId) {
 
 Product.Config.prototype.updateProductName = function(productId) {
     var productName = this.config.productName;
+    console.log(this.config);
     if (productId && this.config.childProducts[productId].productName) {
         productName = this.config.childProducts[productId].productName;
     }
     $$('#product_addtocart_form div.product-name h1').each(function(el) {
         el.innerHTML = productName;
     });
+};
+
+Product.Config.prototype.updateProductSku = function(productId) {
+    var productSku = this.config.productSku;
+    if (productId && this.config.childProducts[productId].productSku) {
+        productSku = this.config.childProducts[productId].productSku;
+    }
+    $$('#product_addtocart_form div.product-sku span').each(function(el) {
+        el.innerHTML = productSku;
+    });
+};
+
+Product.Config.prototype.updateProductUrl = function(productId) {
+    var productUrl = this.config.productUrl;
+    if (productId && this.config.childProducts[productId].productUrl) {
+        productUrl = this.config.childProducts[productId].productUrl;
+    }
+    history.pushState(null, null, productUrl);
+    //$$('#product_addtocart_form div.product-name h1').each(function(el) {
+    //    el.innerHTML = productUrl;
+    //});
 };
 
 Product.Config.prototype.updateProductShortDescription = function(productId) {
