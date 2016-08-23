@@ -90,7 +90,7 @@ class OrganicInternet_SimpleConfigurableProducts_Catalog_Block_Product_View_Type
          * @since 2016-08-23
          */
         $config['productSku'] = $p->getSku();
-        $config['productUrl'] = Mage::getUrl().$p->getUrlPath();
+        $config['productUrl'] = $p->getProductUrl();
 
         $config['description'] = $this->helper('catalog/output')->productAttribute($p, $p->getDescription(), 'description');
         $config['shortDescription'] = $this->helper('catalog/output')->productAttribute($p, nl2br($p->getShortDescription()), 'short_description');
