@@ -99,6 +99,16 @@
                 </rewrite>
             </rss>
         </blocks>
+        <events>
+            <controller_action_predispatch_catalog_product_view>
+                <observers>
+                    <organicinternet_simpleconfigurableproducts_catalog_observer>
+                        <class>OrganicInternet_SimpleConfigurableProducts_Catalog_Model_Observer</class>
+                        <method>redirectProductView</method>
+                    </organicinternet_simpleconfigurableproducts_catalog_observer>
+                </observers>
+            </controller_action_predispatch_catalog_product_view>
+        </events>
     </global>
     <frontend>
         <layout>

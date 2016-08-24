@@ -229,7 +229,7 @@ Product.Config.prototype.updateProductImage = function(productId) {
 
 Product.Config.prototype.updateProductName = function(productId) {
     var productName = this.config.productName;
-    console.log(this.config);
+    
     if (productId && this.config.childProducts[productId].productName) {
         productName = this.config.childProducts[productId].productName;
     }
@@ -252,11 +252,8 @@ Product.Config.prototype.updateProductUrl = function(productId) {
     var productUrl = this.config.productUrl;
     if (productId && this.config.childProducts[productId].productUrl) {
         productUrl = this.config.childProducts[productId].productUrl;
+        history.pushState(null, null, productUrl);
     }
-    history.pushState(null, null, productUrl);
-    //$$('#product_addtocart_form div.product-name h1').each(function(el) {
-    //    el.innerHTML = productUrl;
-    //});
 };
 
 Product.Config.prototype.updateProductShortDescription = function(productId) {
